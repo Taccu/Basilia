@@ -13,6 +13,7 @@ $(function(){
 		//Get Information from the database
 		var getViaId = db.prepare("SELECT * FROM standorte WHERE id =:id");
 		var getViaPNumber = db.prepare("SELECT * FROM standorte WHERE pNumber =:pNumber");
+		selectAll();
 		},
 		/***
 		**** SELECT DATA **
@@ -41,11 +42,11 @@ $(function(){
 		 
 				$('body').css('background-color',newFeature.bgcolor);
 				$('body').css('font-family',newFeature.font);
-				$('#content list').html('<h4 id="bas">'+ newFeature.fname +'</h4>');
+				$('.list').html('<h4 id="bas">'+ newFeature.fname +'</h4>');
 			}
 		}
 	};
- 	//Instantiate Demo
+ 	//Instantiate
  	db.init();
 	
 });	
