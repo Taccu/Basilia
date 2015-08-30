@@ -1,13 +1,13 @@
-$(function(){ 
+//$(function(){ 
 	var db = {
 		init: function () {
 			this.initDatabase();
 		},
 		initDatabase: function() {
 			//Read database from file
-		var fs = require('fs');
-		var SQL = requre('sql.js');
-		var filebuffer = fs.readFileSync('basilia.sqlite');
+		var fs = require(['fs']);
+		var SQL = require(['sql.js']);
+		var filebuffer = fs.readFile('basilia.sqlite');
 		//Load database
 		db = new SQL.Database(filebuffer);
 		//Get Information from the database
@@ -47,6 +47,6 @@ $(function(){
 		}
 	};
  	//Instantiate
- 	db.init();
+ //	db.init();
 	
-});	
+//});	
