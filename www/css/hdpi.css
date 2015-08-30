@@ -138,7 +138,6 @@ h1 {
 #navigation .nav a {
 	height:32px;
 	padding:4px 0;
-	opacity:0.7;
 }
 
 #navigation .home a {
@@ -184,6 +183,7 @@ h1 {
 
 #content {
 	padding:10px;
+	min-width:455px;
 }
 
 #content .box {
@@ -211,3 +211,62 @@ h1 {
 	background: #c5006b url(../res/img/help_home.png) no-repeat scroll center center;
 }
 
+/** CONTENT MAP **/
+
+#map {
+	height:360px;
+}
+
+/** CONTENT LIST **/
+
+#content .basilia-list li {
+	border-bottom:1px solid #cccccc;
+	padding:5px;
+	height:54px;
+	min-width:444px;
+}
+
+#content .basilia-list li .marker {
+	width:54px;
+	height:54px;
+	background:#000;
+	margin-right:10px;
+}
+
+#content .basilia-list li .marker.red {
+	background: transparent url(../res/img/marker_red.png) no-repeat scroll center center;
+}
+
+#content .basilia-list li .marker.blue {
+	background: transparent url(../res/img/marker_blue.png) no-repeat scroll center center;
+}
+
+#content .basilia-list li .marker.green {
+	background: transparent url(../res/img/marker_green.png) no-repeat scroll center center;
+}
+
+#content .basilia-list .li-content p {
+	height:54px;
+	line-height:54px;
+	margin-right:10px;
+}
+
+#content .basilia-list .li-content p.id {
+	font-size:30px;
+	width:38px;
+	text-align:center;
+}
+
+#content .basilia-list .li-content p.dist {
+	font-size:16px;
+	width:50px;
+	text-align:right;
+}
+
+
+#content .basilia-list .li-content p.desc {
+	font-size:14px;
+	line-height:16px;
+	width:260px;
+	margin:0;
+}

@@ -4,13 +4,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/style.css" /> 
+		<link rel="stylesheet" type="text/css" href="css/leaflet.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/> 
 		<link rel="stylesheet" type="text/css" href="css/xhdpi.css" media="(max-width: 720px)"/>
 		<link rel="stylesheet" type="text/css" href="css/hdpi.css" media="(max-width: 480px)"/>
 		<link rel="stylesheet" type="text/css" href="css/mdpi.css" media="(max-width: 320px)"/>		
 		<link rel="stylesheet" type="text/css" href="css/ldpi.css" media="(max-width: 200px)"/>
 		<!-- <link rel="stylesheet" type="text/css" href="js/leaflet.css" />-->
-		<link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
+		
         <title>Basilia - Basel neu entdecken</title>
     </head>
     <body>
@@ -23,7 +24,7 @@
 					<a href="index.html"></a>
 				</div>
 				<div class="nav map">
-					<a href="map.html"></a>
+					<a class="active" href="map.html"></a>
 				</div>
 				<div class="nav list">
 					<a href="list.html"></a>
@@ -35,30 +36,40 @@
 			
 			<!-- CONTENT: MAP -->
 			
-			<div id="content map">
-				<div id="map" style="height: 360px; width: 360px;"></div>
+			<div id="content" class="map">
+				<div id="map"></div>
 			</div>
 			
         </div>
-		<div>
-			<button onclick="map.setView([47.55, 7.58], 8);">Click me</button>
-		</div>
 		
         <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-		<script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
-        <script type="text/javascript">
-			//L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-			//	attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-			//		maxZoom: 18,
-			//		id: 'pimster.mn3gecao',
-			//		accessToken: 'pk.eyJ1IjoicGltc3RlciIsImEiOiI1YmE0Yjg2ZDVmNWM4NWY4Mzc0ZTEzZWM3MjUwNzkyZSJ9.E58O8D-3XcEwXkpcxlmS2g5'
-			//	}).addTo(map);
-			L.mapbox.accessToken = 'pk.eyJ1IjoicGltc3RlciIsImEiOiI1YmE0Yjg2ZDVmNWM4NWY4Mzc0ZTEzZWM3MjUwNzkyZSJ9.E58O8D-3XcEwXkpcxlmS2g';
-			var map = L.mapbox.map('map', 'mapbox.streets')
-				.setView([40, -74.50], 9);
-        </script>
+        <script type="text/javascript" src="js/leaflet.js"></script>
+		<!-- LEAFLET -->
+		<script type="text/javascript">
 
+		var map;
+		var ajaxRequest;
+		var plotlist;
+		var plotlayers=[];
+
+		function initmap() {
+			// set up the map
+			map = new L.Map('map');
+
+			// create the tile layer with correct attribution
+			var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+			var osmAttrib='Map data Â© <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+			var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 12, attribution: osmAttrib});		
+
+			// start the map in South-East England
+			map.setView(new L.LatLng(51.3, 0.7),9);
+			map.addLayer(osm);
+		}
+		
+		initmap();
+		
+		</script>
     </body>
 </html>
