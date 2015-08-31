@@ -46,6 +46,9 @@
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/leaflet.js"></script>
+        <script type="text/javascript" src="js/Leaflet.LimitZoom.js"></script>
+        <script type="text/javascript" src="js/Leaflet.ContinuousZoom.js"></script>
+		
 
 		<!-- LEAFLET -->
 		<script type="text/javascript">
@@ -57,20 +60,20 @@
 
 		function initmap() {
 			// set up the map
-			map = new L.Map('map');
-
+			map = new L.Map('map', {zooms: [12,16,18]});
+			
 			// create the tile layer with correct attribution
+			
 			var osmUrl='res/map/{z}/{x}/{y}.png';
-			var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
-			var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 14, attribution: osmAttrib});		
+			
+			var osm = new L.TileLayer(osmUrl, {minZoom: 12, maxZoom: 18});
+			map.setView(new L.LatLng(47.557800, 7.592573),12);
 
-			map.setView(new L.LatLng(47.557421, 7.592573),14);
+			
 			map.addLayer(osm);
 		}
 		
 		initmap();
-		
-		
 		
 		</script>
     </body>
