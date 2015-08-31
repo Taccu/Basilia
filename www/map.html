@@ -5,6 +5,7 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 		<link rel="stylesheet" type="text/css" href="css/leaflet.css"/>
+		<link rel="stylesheet" type="text/css" href="css/leaflet-routing-machine.css"/>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/> 
 		<link rel="stylesheet" type="text/css" href="css/xhdpi.css" media="(max-width: 720px)"/>
 		<link rel="stylesheet" type="text/css" href="css/hdpi.css" media="(max-width: 480px)"/>
@@ -42,10 +43,13 @@
 			
         </div>
 		
-        <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script> 
+		
+        <!-- <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>-->
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/leaflet.js"></script>
+		<script type="text/javascript" src="js/leaflet-routing/leaflet-routing-machine.js"></script>
 
 		<!-- LEAFLET -->
 		<script type="text/javascript">
@@ -62,10 +66,73 @@
 			// create the tile layer with correct attribution
 			var osmUrl='res/map/{z}/{x}/{y}.png';
 			var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
-			var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 14, attribution: osmAttrib});		
+			var osm = new L.TileLayer(osmUrl, {minZoom: 12, maxZoom: 14, attribution: osmAttrib});		
 
 			map.setView(new L.LatLng(47.557421, 7.592573),14);
 			map.addLayer(osm);
+			
+			
+			//Blaues Icon
+			var blueIcon = L.icon({
+				iconUrl: './res/img/mapmarker_blue.png',
+
+				iconSize:     [41, 41], // size of the icon
+				iconAnchor:   [12, 41], // point of the icon which will correspond to marker's location
+				popupAnchor:  [1, -41] // point from which the popup should open relative to the iconAnchor
+			});
+			
+			//Grünes Icon
+			var greenIcon = L.icon({
+				iconUrl: './res/img/mapmarker_green.png',
+
+				iconSize:     [41, 41], // size of the icon
+				iconAnchor:   [12, 41], // point of the icon which will correspond to marker's location
+				popupAnchor:  [1, -41] // point from which the popup should open relative to the iconAnchor
+			});
+			
+			//Rotes Icon
+			var redIcon = L.icon({
+				iconUrl: './res/img/mapmarker_red.png',
+
+				iconSize:     [41, 41], // size of the icon
+				iconAnchor:   [12, 41], // point of the icon which will correspond to marker's location
+				popupAnchor:  [1, -41] // point from which the popup should open relative to the iconAnchor
+			});
+			
+			
+			L.icon = function (options) {
+				return new L.Icon(options);
+			};
+			
+			
+			
+			//Test, für Routing
+			/*L.Routing.control({
+				waypoints: [
+				L.latLng(47.55716881, 7.58401304),
+				L.latLng(47.54952192, 7.60679707)
+				]
+				//routeWhileDragging:true
+			}).addTo(map);*/
+			
+			
+			//Test, für ersten Marker
+			L.marker([47.55716881, 7.58401304], {icon: redIcon}).addTo(map)
+				.bindPopup('Gewerbemuseum, Seite Petersgraben');
+			
+			//Test,für zweiten Marker
+			L.marker([47.55745039, 7.58276582], {icon: redIcon}).addTo(map)
+				.bindPopup('Vesalgasse, Seite Spalenvorstadt');
+				
+			//Test, für dritten Marker
+			L.marker([47.55727135, 7.58332372], {icon: redIcon}).addTo(map)
+				.bindPopup('Am Balongritter über dem Tor der Feuerwehreinfahrt - Seite Spalenvorstadt');
+
+			//Test, für vierten Marker
+			L.marker([47.54952192, 7.60679707], {icon: redIcon}).addTo(map)
+				.bindPopup('Etwas versetztbei der Kreuzung');
+			
+				
 		}
 		
 		initmap();
