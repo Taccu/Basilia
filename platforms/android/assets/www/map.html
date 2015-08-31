@@ -5,7 +5,6 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 		<link rel="stylesheet" type="text/css" href="css/leaflet.css"/>
-		<link rel="stylesheet" type="text/css" href="css/leaflet-routing-machine.css"/>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/> 
 		<link rel="stylesheet" type="text/css" href="css/xhdpi.css" media="(max-width: 720px)"/>
 		<link rel="stylesheet" type="text/css" href="css/hdpi.css" media="(max-width: 480px)"/>
@@ -47,10 +46,10 @@
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/leaflet.js"></script>
-        <script type="text/javascript" src="js/leaflet-routing-machine.js"></script>
+
 		<!-- LEAFLET -->
 		<script type="text/javascript">
-		/**
+		
 		var map;
 		var ajaxRequest;
 		var plotlist;
@@ -61,31 +60,17 @@
 			map = new L.Map('map');
 
 			// create the tile layer with correct attribution
-			var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+			var osmUrl='res/map/{z}/{x}/{y}.png';
 			var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
-			var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 12, attribution: osmAttrib});		
+			var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 14, attribution: osmAttrib});		
 
-			// start the map in South-East England
-			map.setView(new L.LatLng(51.3, 0.7),9);
+			map.setView(new L.LatLng(47.557421, 7.592573),14);
 			map.addLayer(osm);
 		}
 		
 		initmap();
-		**/
 		
-		var map = L.map('map');
-
-		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-			attribution: '© OpenStreetMap contributors'
-		}).addTo(map);
 		
-		L.Routing.control({
-			waypoints: [
-				L.latLng(57.74, 11.94),
-				L.latLng(57.6792, 11.949)
-			],
-			routeWhileDragging: true
-		}).addTo(map);
 		
 		</script>
     </body>
