@@ -213,8 +213,12 @@ h1 {
 
 /** CONTENT MAP **/
 
+.map {
+	padding: 0 !important;
+}
+
 #map {
-	height:360px;
+	height:759px;
 }
 
 /** CONTENT LIST **/
