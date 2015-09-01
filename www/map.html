@@ -36,7 +36,7 @@
 			
 			<!-- CONTENT: MAP -->
 			
-			<div id="content" class="map">
+			<div id="content" class="mapCont">
 				<div id="map"></div>
 			</div>
 			
@@ -68,6 +68,7 @@
 			
 			var osm = new L.TileLayer(osmUrl, {minZoom: 12, maxZoom: 18});
 			map.setView(new L.LatLng(47.557800, 7.592573),12);
+			
 
 			
 			map.addLayer(osm);
