@@ -1,0 +1,130 @@
+/** 
+
+GENERAL STYLESHEET
+
+**/
+
+* {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+	margin: 0%;
+	padding: 0%;
+}
+
+.clear {
+	clear:both;
+}
+
+h1, h2, h3, h4, h5, p, a, li {
+	font-family: Verdana;
+}
+
+/** TOP NAVIGATION **/
+
+#navigation .app-logo {
+	float:left;
+}
+
+#navigation {
+	float:left;
+	background:#3d3d3d;
+	border-bottom:1px solid #282828;
+}
+
+#navigation .app-title {
+	display:inline-block;
+}
+
+#navigation .app-title h1 {
+	color:#FFFFFF;
+}
+
+#navigation .language-selector {
+	float:right;
+}
+
+#navigation .nav {
+	float:left;
+	width:33%;
+}
+
+#navigation .nav a {
+	width:100%;
+	float:left;
+	opacity:0.6;
+}
+
+#navigation .nav a.active {
+	opacity:1;
+	background-color:#101010;
+}
+
+/** LOADING SCREEN **/
+
+.preloader {
+    background: none repeat scroll 0 0 #fff;
+    opacity: 1;
+    position: fixed;
+    text-align: center;
+    transition: all 0.5s ease 0s;
+    z-index: 9999;
+}
+
+.preloader .spinner {
+	position: relative;
+}
+
+@keyframes bounce {
+	0%, 20%, 50%, 80%, 100% {
+		transform: translateY(0px);
+	}
+	40% {
+		transform: translateY(-30px);
+	}
+	60% {
+		transform: translateY(-15px);
+	}
+}
+
+.preloader .pre-bounce1, .preloader .pre-bounce2 {
+    animation: 2s ease 0s normal none infinite running bounce;
+	background-color: #c5006b;
+    opacity: 0.6;
+    position: absolute;
+}
+
+.preloader .pre-bounce2 {
+    animation-delay: -0.5s;
+}
+
+/** CONTENT HOME **/
+
+#content .box, #content .box a {
+	float:left;
+}
+
+/** CONTENT MAP **/
+
+#map {height:360px;} /**DEV**/ 
+
+
+
+/** CONTENT LIST **/
+
+#content ul.basilia-list {
+	list-style:none;
+}
+
+#content ul.basilia-list li{
+	clear:both;
+}
+
+#content .basilia-list li span.marker, #content .basilia-list .li-content, #content .basilia-list .li-content p  {
+	float:left;
+}
+
+#content .basilia-list .li-content p {
+	color:#424242;
+}

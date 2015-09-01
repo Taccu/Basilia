@@ -23,19 +23,19 @@
         <meta name="format-detection" content="telephone=no" />
         <!--<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /> -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<!--<link rel="stylesheet" type="text/css" href="css/style.css" /> 
-		<link rel="stylesheet" type="text/css" href="css/xhdpi.css" media="(max-width: 720px)"/>
+		<!--<link rel="stylesheet" type="text/css" href="css/xhdpi.css" media="(max-width: 720px)"/>
 		<link rel="stylesheet" type="text/css" href="css/hdpi.css" media="(max-width: 480px)"/>
 		<link rel="stylesheet" type="text/css" href="css/mdpi.css" media="(max-width: 320px)"/>		
 		<link rel="stylesheet" type="text/css" href="css/ldpi.css" media="(max-width: 200px)"/>	-->
 		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/leaflet.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css" /> 
 		<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 		<script type="text/javascript" src="js/jquerymobile.js/jquery.mobile-1.4.5.min.js"></script>
         <title>Basilia - Basel neu entdecken</title>
     </head>
     <body>
-        <div class="app" data-role="page">
-		
+        <div class="app">
 		
 			<!-- LOADING SCREEN -->
 			
@@ -46,48 +46,208 @@
 				</div>
 			</div>
 			
-			<!-- TOP NAVIGATION HOME-->
+			<!-- PAGE: HOME -->
+			<div data-role="page" id="home-page">
 			
-			<div class="navigation" data-role="header">
-				<div class="app-logo">
+				<!-- NAVIGATION: HOME -->
+				<div data-role="header" class="navigation ui-grid-b" >
+					<div class="app-logo ui-block-a">
+						<img src="./res/img/applogo.png"/>
+					</div>
+					<div class="app-title ui-block-b">
+						<h1>APP TITEL</h1>
+					</div>
+					<div class="language-selector ui-block-c">
+						<form>
+							<fieldset date-role="controlgroup" data-type="horizontal">
+								<select name="language" id="langauge" data-mini="true" class="select-with-images">
+									<option class="ger" value="#" selected="selected"></option>
+								</select>
+							</fieldset>
+						</form>
+					</div>
 				</div>
-				<div class="app-title">
-					<h1>APP TITEL</h1>
+				
+				<!-- CONTENT: HOME -->
+				<div data-role="main" class="ui-content" >
+				
+					<div class="ui-grid-a">
+						<div class="map box ui-block-a">
+							<a href="#map-page" class="ui-btn ui-corner-all"><img src="./res/img/map.svg/"></a>
+						</div>
+						<div class="list box ui-block-b">
+							<a href="#list-page" class="ui-btn ui-corner-all"><img src="./res/img/list.svg/"></a>
+						</div>
+						<div class="directlink box ui-block-a">
+							<a href="http://www.basilia.pk.vision.ch" class="ui-btn ui-corner-all"><img src="./res/img/directlink.svg/"></a>
+						</div>
+						<div class="help box ui-block-b">
+							<a href="#help-page" class="ui-btn ui-corner-all"><img src="./res/img/help.svg/"></a>
+						</div>
+					</div>
 				</div>
-				<div class="language-selector">
-					
-				</div>
-				<div class="clear"></div>
 			</div>
 			
-			<div class="clear"></div>
+			<!-- PAGE: MAP -->
+			<div data-role="page" id="map-page">
+				
+				<div data-role="panel" id="legend" data-display="overlay">
+					<h2>Kartenlegende</h2>
+					<a href="#map-page" data-rel="close" class="ui-btn ui-btn-inline ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext"></a>
+				</div>
+				
+				<!-- NAVIGATION: MAP -->
+				<div class="navigation" data-role="header">
+					<div class="app-logo">
+					</div>
+					<div class="app-title">
+						<h1>APP TITEL</h1>
+					</div>
+					<div class="language-selector">
+						
+					</div>
+
+					<div data-role="navbar">
+						<ul>
+							<li><a href="#home-page" data-transition="slide" data-direction="reverse" data-icon="home">HOME</a></li>
+							<li><a href="#map-page" class="ui-btn-active ui-state-persist" data-icon="location">MAP</a></li>
+							<li><a href="#list-page" data-transition="slide" data-icon="bullets">LIST</a></li>
+						</ul>
+					</div>
+
+				</div>
+				
+				<!-- CONTENT: MAP -->
+				<div class="ui-content" data-role="main">
+					<div id="map"></div>
+					<a href="#legend">Kartenlegende</a>
+				</div>
 			
-			<!-- CONTENT: HOME -->
-			
-			<div class="ui-content" data-role="main">
-				<div class="map box">
-					<a href="map.html"></a>
-				</div>
-				<div class="list box">
-					<a href="list.html"></a>
-				</div>
-				<div class="clear"></div>
-				<div class="directlink box">
-					<a href="http://www.basilia.pk.vision.ch"></a>
-				</div>
-				<div class="help box">
-					<a href="help.html"></a>
-				</div>
-				<div class="clear"></div>
 			</div>
 			
+			<!-- PAGE: LIST -->
+			<div data-role="page" id="list-page">
+			
+				<!-- NAVIGATION: LIST -->
+				<div class="navigation" data-role="header">
+					<div class="app-logo">
+					</div>
+					<div class="app-title">
+						<h1>APP TITEL</h1>
+					</div>
+					<div class="language-selector">
+						
+					</div>
+				
+					<div data-role="navbar">
+						<ul>
+							<li><a href="#home-page" data-transition="slide" data-direction="reverse" data-icon="home">HOME</a></li>
+							<li><a href="#map-page" data-transition="slide" data-direction="reverse" data-icon="location">MAP</a></li>
+							<li><a href="#list-page" class="ui-btn-active ui-state-persist" data-icon="bullets">LIST</a></li>
+						</ul>
+					</div>
+				</div>
+				
+				<!-- CONTENT: LIST -->
+				<div class="ui-content" data-role="main">
+					<ul class="basilia-list">
+						<li class="li-element-1">
+							<a href="#details-page">
+								<span class="marker red"></span>
+								<div class="li-content">
+									<p class="id">2</p>
+									<p class="dist">20 km</p>
+									<p class="desc">Sandsteinrelief an der Hauptpost Seite Gerbergasse über dem letzten Portal Richtung Marktplatz</p>
+									<div class="clear"></div>
+								</div>
+								<div class="clear"></div>
+							</a>
+						</li>
+						<li class="li-element-2">
+							<span class="marker green"></span>
+							<div class="li-content">
+								<p class="id">21</p>
+								<p class="dist">5 km</p>
+								<p class="desc">Ecke Eulerstraße - Leimenstraße, direkt vor der Synagogwe</p>
+								<div class="clear"></div>
+							</div>
+							<div class="clear"></div>
+						</li>
+						<li class="li-element-3">
+							<span class="marker blue"></span>
+							<div class="li-content">
+								<p class="id">5</p>
+								<p class="dist">20 km</p>
+								<p class="desc">Sandsteinrelief an der Hauptpost Seite Gerbergasse über dem letzten Poratl Richtung Marktplatz</p>
+								<div class="clear"></div>
+							</div>
+							<div class="clear"></div>
+						</li>
+					</ul>
+				</div>  
+			</div>
+				
+			<!-- DIALOG: DETAILS -->
+			<div data-role="page" data-dialog="true" id="details-page">
+				<div data-role="main" class="ui-content">
+					<a href="#list-page">LIST</a>
+					<a href="#list-page" class="ui-btn ui-btn-inline ui-corner-all ui-icon-arrow-l ui-btn-icon-notext">Zurück</a>
+					<a href="#list-page" class="ui-btn ui-btn-inline ui-corner-all ui-icon-arrow-r ui-btn-icon-notext">Vor</a>
+				</div>
+			</div>
+			
+			<!-- PAGE: HELP -->
+			<div data-role="page" id="help-page">
+			
+				<!-- NAVIGATION: HELP -->
+				<div class="navigation" data-role="header">
+					<div class="app-logo">
+					</div>
+					<div class="app-title">
+						<h1>APP TITEL</h1>
+					</div>
+					<div class="language-selector">
+						
+					</div>
+					<div class="clear"></div>
+				</div>	
+				
+				<!-- CONTENT: HELP -->
+				<div class="ui-content" data-role="main">
+					<a href="#home-page">HOME</a>
+				</div>
+				
+			</div>			
         </div>
 
         
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        
+        <script type="text/javascript" src="js/leaflet.js"></script>
+        <script type="text/javascript" src="js/Leaflet.LimitZoom.js"></script>
+        <script type="text/javascript" src="js/Leaflet.ContinuousZoom.js"></script>
+		
+		<!-- JQUERY MOBILE -->
+		
+		<script type="text/javascript">
+			$(document).ready(function() {
 
+			//select-with-images
+				$('.select-with-images').on('change', function() {
+					var selection = $(this).val();
+					$(this).parents('.ui-select').find('.ui-btn-text').attr('class', 'ui-btn-text '+selection);
+				});
+				$(document).on('mouseover', function() {
+					$('.select-with-images').each(function() {
+						var selection = $(this).find(':selected').val();
+						//console.log('sel: '+selection);
+						$(this).parents('.ui-select').find('.ui-btn-text').attr('class', 'ui-btn-text '+selection);
+					});
+				});
+			});
+			
+		</script>
+		
 		<!-- HIDE LOADING SCREEN -->
 		<script type="text/javascript">
 			$(document).ready(function() {
@@ -99,6 +259,34 @@
 				}
 				setTimeout(hideLoadingScreen, 1000);
 			});
+		
+		</script>
+		
+		<!-- LEAFLET -->
+		<script type="text/javascript">
+		
+		var map;
+		var ajaxRequest;
+		var plotlist;
+		var plotlayers=[];
+
+		function initmap() {
+			// set up the map
+			map = new L.Map('map', {zooms: [12,16,18]});
+			
+			// create the tile layer with correct attribution
+			
+			var osmUrl='res/map/{z}/{x}/{y}.png';
+			
+			var osm = new L.TileLayer(osmUrl, {minZoom: 12, maxZoom: 18});
+			map.setView(new L.LatLng(47.557800, 7.592573),12);
+			
+
+			
+			map.addLayer(osm);
+		}
+		
+		initmap();
 		
 		</script>
     </body>
